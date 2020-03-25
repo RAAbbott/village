@@ -128,26 +128,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ), 
       body: Container(
-        // height: 280.0,
-        // child: new ListView(
-        //       scrollDirection: Axis.horizontal,
-        //       children: <Widget>[
-        //         talkPosts(),
-        //         Padding(padding: EdgeInsets.all(18.0)),
-        //         talkPosts(),
-        //         Padding(padding: EdgeInsets.all(18.0)),
-        //         talkPosts(),
-        //       ],
-        //     ),
           child: Column(
             children: <Widget> [
               Container(
                 height: 50,
                 child: Text('Hello')
               ),
-              // getRow(),
               Container(
-                height: 300.0,
+                height: 360.0,
                 padding: EdgeInsets.fromLTRB(0,0,0,40),
                 child:new ListView(
                   padding: EdgeInsets.fromLTRB(0,10,0,10),
@@ -157,17 +145,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     talkPosts(),
                     talkPosts(),
                     talkPosts(),
-                    talkPosts(),
-                    talkPosts(),
                   ],
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  Text('Column'),
-                  Text('Column2')
-                ],
-              )
             ]
           )
         ),

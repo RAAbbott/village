@@ -8,8 +8,8 @@ class TalkCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(20,0,0,0),
-      height: 280.0,
-      width: 200.0,
+      height: 320.0,
+      width: 230.0,
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -36,10 +36,9 @@ class TalkCard extends StatelessWidget {
               )
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+              padding: EdgeInsets.fromLTRB(25, 20, 25, 0),
               child: Column(
                 children: <Widget>[
-                  // Padding(padding: EdgeInsets.fromLTRB(0,0,0,10), child: Text("Title", style: TextStyle(fontSize:14, color: Color(0xFF535353)))),
                   Text(
                     "this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post", 
                     overflow: TextOverflow.ellipsis,
@@ -47,6 +46,21 @@ class TalkCard extends StatelessWidget {
                     style: TextStyle(fontSize: 13, color: Color(0xFF535353))
                   )
                 ],
+              )
+            ),
+            Container(
+              height: 60,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30,50,0,0),
+                child: Row(
+                  children: <Widget>[
+                    // ImageButtonInputElement(icon: AssetImage('images/applause-icon.png')),
+                    // Image(image: AssetImage('images/applause.png')),
+                    IconButton(icon: Icon(Icons.thumb_up), onPressed: null),
+                    IconButton(icon: Icon(Icons.mode_comment), onPressed: null,),
+                    IconButton(icon: Icon(Icons.bookmark_border), onPressed: null,),
+                  ],
+                )
               )
             )
           ],
