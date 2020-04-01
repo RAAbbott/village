@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-import '../models/talkPost.dart';
 
-class TalkCard extends StatelessWidget {
-  // TalkCard(@required TalkPost post);
 
-  @override
+class NeedCard extends StatelessWidget {
+  @override 
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(20,0,0,0),
-      height: 300.0,
-      width: 230.0,
+      height: 180.0,
+      width: 180.0,
       child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(45.0)
-        ),
         child: Column(
           children: <Widget>[
             Container(
-              height: 70.0,
-              padding: EdgeInsets.fromLTRB(15, 0, 0,0),
+              height: 65.0,
+              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
               child: Row(
                 children: <Widget>[
                   CircleAvatar(backgroundColor: Colors.grey),
@@ -27,42 +21,33 @@ class TalkCard extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(15, 20, 0, 0), 
                     child: Column(
                       children: <Widget>[
-                        Text("User", style: TextStyle(fontSize: 11, color: Color(0xFF535353))),
-                        Text("Joined 2020", style: TextStyle(fontSize: 8, color: Color(0xFF535353)))
+                        Text("Anonymous", style: TextStyle(fontSize: 11, color: Color(0xFF535353))),
                       ],
                     )
                     ),
                 ],
               )
             ),
+            Text("Baby Supplies", style: TextStyle(fontSize:13, fontWeight: FontWeight.bold)),
             Padding(
-              padding: EdgeInsets.fromLTRB(25, 20, 25, 0),
+              padding: EdgeInsets.fromLTRB(15, 8, 15, 10),
               child: Column(
                 children: <Widget>[
                   Text(
                     "this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post, this is a post", 
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 6,
+                    maxLines: 3,
                     style: TextStyle(fontSize: 12, color: Color(0xFF535353))
                   )
                 ],
               )
             ),
-            Container(
-              height: 60,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30,50,0,0),
-                child: Row(
-                  children: <Widget>[
-                    IconButton(icon: Icon(Icons.thumb_up), onPressed: null),
-                    IconButton(icon: Icon(Icons.mode_comment), onPressed: null,),
-                    IconButton(icon: Icon(Icons.bookmark_border), onPressed: null,),
-                  ],
-                )
-              )
-            )
           ],
-        )
+        ),
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(45.0)
+        ),
       )
     );
   }

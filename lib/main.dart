@@ -4,7 +4,10 @@
 // opens a [SnackBar], while the second action navigates to a new page.
 
 import 'package:flutter/material.dart';
+import 'package:village/widgets/needCard.dart';
 import './widgets/talkCard.dart';
+import './widgets/moodCard.dart';
+import './widgets/needCard.dart';
 
 void main() => runApp(MyApp());
 
@@ -53,7 +56,7 @@ class MyStatefulWidget extends StatefulWidget {
 
 /// This is the stateless widget that the main application instantiates.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  double _elevation = 0.0;
+  double _elevation = 10.0;
 
   void _setElevation() {
     setState(() {
@@ -83,6 +86,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   Widget talkPosts() {
     return new TalkCard();
+  }
+
+  Widget needPost() {
+    return new NeedCard();
+  }
+
+  Widget moodCard() {
+    return new MoodCard();
   }
 
   @override
@@ -128,16 +139,29 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
       ), 
       body: Container(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
           child: Column(
             children: <Widget> [
-              Container(
-                height: 50,
-                child: Text('Hello')
+              Row(
+                children: <Widget>[
+                  Container(height: 1, width: 80, padding: EdgeInsets.fromLTRB(0, 0, 0, 0), color: Colors.black,),
+                  Padding(padding: EdgeInsets.fromLTRB(20, 0, 20, 0), child: Text("Complete Your Daily Tasks!")),
+                  Container(height: 1, width: 80, padding: EdgeInsets.fromLTRB(0, 0, 0, 0), color: Colors.black,),
+                ],
               ),
               Container(
-                height: 360.0,
-                padding: EdgeInsets.fromLTRB(0,0,0,40),
-                child:new ListView(
+                height: 120.0,
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(0,20,0,0),
+                  child: this.moodCard()
+                )
+              ),
+              Padding(padding: EdgeInsets.fromLTRB(0,60,0,0)),
+              Padding(child: Align(child: Text("Talk Of The Village", style: TextStyle(color: Color(0xFF535353), fontSize: 20)), alignment: Alignment.centerLeft), padding: EdgeInsets.fromLTRB(20,0,0,0),),
+              Container(
+                height: 320.0,
+                child: new ListView(
                   padding: EdgeInsets.fromLTRB(0,10,0,10),
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -148,11 +172,39 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ],
                 ),
               ),
+              Padding(child: Align(child: Text("In Need", style: TextStyle(color: Color(0xFF535353), fontSize: 20)), alignment: Alignment.centerLeft), padding: EdgeInsets.fromLTRB(20,20,0,0),),
+              Column(
+                children: <Widget>[
+                  Container(
+                    height: 180.0,
+                    child: new ListView(
+                      padding: EdgeInsets.fromLTRB(0,10,0,10),
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        needPost(),
+                        needPost()
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 180.0,
+                    child: new ListView(
+                      padding: EdgeInsets.fromLTRB(0,10,0,10),
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        needPost(),
+                        needPost()
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ]
           )
-        ),
+        )
+      ),
       backgroundColor: Colors.white,
-      floatingActionButton: FloatingActionButton(onPressed: _setElevation,),
+      // bottomNavigationBar: ,
     );
   }
 }
