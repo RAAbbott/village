@@ -3,6 +3,7 @@
 // This sample shows an [AppBar] with two simple actions. The first action
 // opens a [SnackBar], while the second action navigates to a new page.
 
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:village/widgets/needCard.dart';
 import './widgets/talkCard.dart';
@@ -157,6 +158,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: this.moodCard()
                 )
               ),
+              // Padding(padding: EdgeInsets.fromLTRB(0,20,0,0), child: DotsIndicator(dotsCount: 1, position: 1,)),
+              new DotsIndicator(dotsCount: 3, position: 0, decorator: DotsDecorator(color: Colors.grey, activeColor: Color(0xFFFFB7A7)),),
               Padding(padding: EdgeInsets.fromLTRB(0,60,0,0)),
               Padding(child: Align(child: Text("Talk Of The Village", style: TextStyle(color: Color(0xFF535353), fontSize: 20)), alignment: Alignment.centerLeft), padding: EdgeInsets.fromLTRB(20,0,0,0),),
               Container(
